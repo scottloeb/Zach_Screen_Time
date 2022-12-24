@@ -1,0 +1,32 @@
+- id: reset_extra_screen_time
+  alias: "Reset extra screen time"
+  mode: single
+  max_exceeded: silent
+  trigger:
+    - platform: time
+      at: "00:00:00"
+  condition:
+    condition: time
+    weekday:
+      - mon
+  action:
+    - service: input_number.set_value
+      target:
+        entity_id: input_number.child_1_extra_screen_time
+      data:
+        value:  >-
+          {% if states('input_number.child_1_extra_screen_time') | int(0) >= 0 %}
+            {{ min(states('input_number.child_1_extra_screen_time') | int(0), states('sensor.child_1_weekly_screen_time_remaining') | int(0)) }}
+          {% else %}
+            {{ min(0, 0 + states('input_number.child_1_extra_screen_time') | int(0) + states('sensor.weekly_screen_time') | int(0)) }}
+          {% endif %}
+    - service: input_number.set_value
+      target:
+        entity_id: input_number.child_2_extra_screen_time
+      data:
+        value: >-
+          {% if states('input_number.child_2_extra_screen_time') | int(0) >= 0 %}
+            {{ min(states('input_number.child_2_extra_screen_time') | int(0), states('sensor.child_2_weekly_screen_time_remaining') | int(0)) }}
+          {% else %}
+            {{ min(0, 0 + states('input_number.child_2_extra_screen_time') | int(0) + states('sensor.weekly_screen_time') | int(0)) }}
+          {% endif %}

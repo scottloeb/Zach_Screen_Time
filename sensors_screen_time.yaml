@@ -1,0 +1,28 @@
+- platform: history_stats
+  name: Child 1 screen time this week
+  entity_id: input_boolean.child_1_screen_time_active
+  state: "on"
+  type: time
+  start: "{{ as_timestamp(now().replace(hour=0, minute=0, second=0)) - now().weekday() * 86400 }}"
+  end: "{{ now() }}"
+- platform: history_stats
+  name: Child 1 screen time today
+  entity_id: input_boolean.child_1_screen_time_active
+  state: "on"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+  end: "{{ now() }}"
+- platform: history_stats
+  name: Child 2 screen time this week
+  entity_id: input_boolean.child_2_screen_time_active
+  state: "on"
+  type: time
+  start: "{{ as_timestamp(now().replace(hour=0, minute=0, second=0)) - now().weekday() * 86400 }}"
+  end: "{{ now() }}"
+- platform: history_stats
+  name: Child 2 screen time today
+  entity_id: input_boolean.child_2_screen_time_active
+  state: "on"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+  end: "{{ now() }}"

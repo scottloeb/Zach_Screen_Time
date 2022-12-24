@@ -1,0 +1,14 @@
+child_1_extra_screen_time:
+  name: "Child 1 extra screen time"
+  min: -600
+  max: 600
+  step: 1
+  mode: box
+  unit_of_measurement: "min"
+child_2_extra_screen_time:
+  name: "Child 2 extra screen time"
+  min: -600
+  max: 600
+  step: 1
+  mode: box
+  unit_of_measurement: "min"
