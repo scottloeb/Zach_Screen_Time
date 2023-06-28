@@ -1,5 +1,5 @@
-child_1_extra_screen_time:
-  name: "Child 1 extra screen time"
+zach_extra_screen_time:
+  name: "Zach extra screen time"
   min: -600
   max: 600
   step: 1
