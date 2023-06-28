@@ -1,4 +1,4 @@
-child_1_screen_time_active:
-  name: "Child 1 is consuming screen time"
+zach_screen_time_active:
+  name: "Zach is consuming screen time"
 child_2_screen_time_active:
   name: "Child 2 is consuming screen time"
