@@ -13,13 +13,13 @@
   action:
     - service: input_number.set_value
       target:
-        entity_id: input_number.child_1_extra_screen_time
+        entity_id: input_number.zach_extra_screen_time
       data:
         value:  >-
-          {% if states('input_number.child_1_extra_screen_time') | int(0) >= 0 %}
-            {{ min(states('input_number.child_1_extra_screen_time') | int(0), states('sensor.child_1_weekly_screen_time_remaining') | int(0)) }}
+          {% if states('input_number.zach_extra_screen_time') | int(0) >= 0 %}
+            {{ min(states('input_number.zach_extra_screen_time') | int(0), states('sensor.zach_weekly_screen_time_remaining') | int(0)) }}
           {% else %}
-            {{ min(0, 0 + states('input_number.child_1_extra_screen_time') | int(0) + states('sensor.weekly_screen_time') | int(0)) }}
+            {{ min(0, 0 + states('input_number.zach_extra_screen_time') | int(0) + states('sensor.weekly_screen_time') | int(0)) }}
           {% endif %}
     - service: input_number.set_value
       target:
